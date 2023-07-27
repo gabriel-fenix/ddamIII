@@ -1,0 +1,61 @@
+struct Articulo {
+  var nombre: String
+  var cantidad: Int
+}
+
+func registroArticulo()-> Articulo {
+  print("Registrar Articulo")
+  print("Ingresar el nombre")
+  let nombre = readLine()!
+  print("Ingresa la cantidad")
+  let cantidad = Int(readLine()!)!
+  return Articulo(nombre: nombre, cantidad: cantidad)
+}
+
+func mostrarlistado(articulos:[Articulo]){
+  print("Listado de articulos")
+  for(indice, articulo) in articulos.enumerated(){
+    print("Articulo \(indice+1): \(articulo.nombre)")
+    print("cantidad: \(articulo.cantidad)")
+  }
+}
+
+func consultadeArticulo(articulos:[Articulo]){
+print("nombre del articulo a consulta")
+  let nombre = readLine()!
+  for(indice, articulo) in articulos.enumerated(){
+    if articulo.nombre == nombre {
+    print("Articulo \(indice+1): \(articulo.nombre)")
+    print("cantidad: \(articulo.cantidad)")
+    break
+       }
+     }
+  
+}
+
+var articulos:[Articulo]=[]
+var opcion = 0
+repeat{
+  print("**********Menu**********")
+  print("1-Registro de articulos")
+  print("2-Listado de articulos")
+  print("3-Consulta de articulos")
+  print("4-Salir")
+  opcion = Int(readLine()!)!
+  switch opcion{
+    case 1:
+    let nuevoArticulo = registroArticulo()
+    articulos.append(nuevoArticulo)
+      print("Registrado exitosamente")
+    case 2:
+    mostrarlistado(articulos:articulos)
+      print("Listado")
+    case 3:
+    consultadeArticulo(articulos:articulos)
+      print("Consulta")
+    case 4:
+      print("Salir")
+    default:
+    print("Opcion no valida")
+  }
+} while opcion != 4
