@@ -1,0 +1,90 @@
+class Cuadrado {
+var lado: Double
+init(lado: Double){
+self.lado = lado
+}
+func calcularArea() -> Double {
+return lado * lado
+}
+}
+class Rectangulo{
+var alto: Double
+var largo: Double
+init(alto: Double, largo: Double){
+self.alto = alto
+self.largo = largo
+}
+func calcularArea() -> Double {
+return alto * largo
+}
+}
+class Triangulo {
+var base: Double
+var altura: Double
+init(base: Double, altura: Double){
+self.base = base
+self.altura = altura
+}
+func calcularArea() -> Double {
+return ( base * altura)/2
+}
+}
+class Circulo {
+var radio: Double
+let pi = 3.14159
+init(radio: Double){
+self.radio = radio
+}
+func calcularArea() -> Double {
+return Double.pi * radio * radio
+}
+}
+var opcion: Int = 0
+var bandera = true
+repeat{
+print("Menu de opciones: Calcular Area")
+print("1- Cuadrado")
+print("2- Rectangulo")
+print("3- Triangulo")
+print("4- Circulo ")
+print("5- Salir")
+print("Introduce una opcion (numero)")
+let opcion = Int(readLine()!)!
+switch opcion {
+case 1:
+print("Introduce el lado del cuadrado")
+let xlado = Double(readLine()!)!
+let calculadorDeAreas = Cuadrado(lado: xlado)
+print("El area es \(calculadorDeAreas.calcularArea())")
+print("Cuadrado")
+case 2:
+print("Introduce el alto del rectangulo")
+let xalto = Double(readLine()!)!
+print("Introduce el largo del rectangulo")
+let xlargo = Double(readLine()!)!
+let calculadorDeAreas = Rectangulo(alto: xalto, largo: xlargo)
+print("El area es \(calculadorDeAreas.calcularArea())")
+print("Rectangulo")
+case 3:
+print("Introduce la base del triangulo")
+let xbase = Double(readLine()!)!
+print("Introduce la altura del triangulo")
+
+
+let xaltura = Double(readLine()!)!
+let calculadorDeAreas = Triangulo(base: xbase, altura: xaltura)
+print("El area es \(calculadorDeAreas.calcularArea())")
+print("Triangulo")
+case 4:
+print("Introduce el radio del circulo")
+let xradio = Double(readLine()!)!
+let calculadorDeAreas = Circulo(radio: xradio)
+print("El area es \(calculadorDeAreas.calcularArea())")
+print("Circulo")
+case 5:
+print("Salida")
+bandera = false
+default:
+print("Opcion invalida")
+}
+} while bandera == true
